@@ -28,4 +28,8 @@
   .container {
     display: none;
   }
+
+  .container_clicked {
+    margin: 32px 16px;
+  }
 }
