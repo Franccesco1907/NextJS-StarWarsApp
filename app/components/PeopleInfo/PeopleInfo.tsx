@@ -3,11 +3,11 @@ import GeneralInformation from '../GeneralInformation/GeneralInformation';
 import VehicleInformation from '../VehicleInformation/VehicleInformation';
 import { People } from '@/app/interfaces/people.interface';
 
-function PeopleInfo(props: { detailPeople: People }) {
+function PeopleInfo(props: { detailPeople: People, peopleId: number }) {
   return (
-    <div className={styles.container}>
+    <div className={props.peopleId !== 0 ? styles.container_clicked:styles.container}>
       {props.detailPeople != null ? (
-        <div className={styles.people_information}>
+        <div className={props.peopleId !== 0 ? styles.people_information_clicked : styles.people_information}>
           <GeneralInformation detailPeople={props.detailPeople} />
           <VehicleInformation detailPeople={props.detailPeople} />
         </div>

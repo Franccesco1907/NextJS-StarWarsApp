@@ -7,12 +7,19 @@
   width: 100%;
 }
 
+.container_clicked {
+  display: flex;
+  flex-direction: row;
+}
+
 @media (max-width: 576px) {
-  .container, .container > div {
+
+  .container,
+  .container > div {
     width: 100%;
   }
 
-  .people_info {
+  .people_list_clicked {
     display: none;
   }
 }

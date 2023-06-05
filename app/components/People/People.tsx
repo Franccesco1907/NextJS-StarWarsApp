@@ -7,25 +7,25 @@ import styles from './People.module.css'
 import { People as PeopleInterface } from '@/app/interfaces/people.interface';
 
 export default function People(props: { people: PeopleInterface[], loading: boolean }) {
-  const [idPeople, setIdPeople] = useState<number>(1);
+  const [peopleId, setPeopleId] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(props.loading);
 
   useEffect(() => {
-    console.log('idPeople', idPeople)
+    console.log('peopleId', peopleId)
     console.log('props.loading', props.loading)
-  }, [idPeople])
+  }, [peopleId])
 
   return (
-    <div className={styles.container}>
-      <div>
+    <div className={peopleId !== 0 ? styles.container_clicked : styles.container}>
+      <div className={peopleId !== 0 ? styles.people_list_clicked : ''}>
         {props.people.length !== 0 ? (
           props.people.map((people: PeopleInterface, index: number) => (
-              <Card
-                key={index}
-                title={people.name}
-                description={people.mainSpecie + ' from ' + people.home}
-                onClick={() => { setIdPeople(index + 1); setLoading(true);}}
-              />
+            <Card
+              key={index}
+              title={people.name}
+              description={people.mainSpecie + ' from ' + people.home}
+              onClick={() => { setPeopleId(index + 1); setLoading(true); }}
+            />
           ))
         ) : (
           <div>
@@ -34,9 +34,9 @@ export default function People(props: { people: PeopleInterface[], loading: bool
         )}
       </div>
       {
-        loading && (
+        (loading && peopleId !== 0) && (
           <div className={styles.people_info}>
-            <PeopleInfo detailPeople={props.people[idPeople]} />
+            <PeopleInfo detailPeople={props.people[peopleId]} peopleId={peopleId} />
           </div>
         )
       }
