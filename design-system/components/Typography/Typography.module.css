@@ -1,17 +1,27 @@
 .heading {
-  font-size: 17px;
+  font-size: var(--font-size-primary);
+  color: var(--white);
+  font-weight: var(--font-weight-primary);
 }
 
 .subheading {
-  font-size: 17px;
+  font-size: var(--font-size-primary);
+  color: var(--primary);
+  font-weight: var(--font-weight-primary);
+}
+
+.subheading::first-letter {
+  text-transform: uppercase;
 }
 
 .body {
-  font-size: 14px;
-  color: #888;
+  font-size: var(--font-size-secondary);
+  color: var(--secondary);
+  font-weight: var(--font-weight-secondary);
 }
 
 .caption {
-  font-size: 17px;
-  color: #333333;
+  font-size: var(--font-size-primary);
+  color: var(--secondary);
+  font-weight: var(--font-weight-primary);
 }

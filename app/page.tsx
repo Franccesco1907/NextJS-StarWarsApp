@@ -1,23 +1,20 @@
 'use client'
-import React, { useEffect, useState } from 'react';
-import Header from '@/design-system/components/Layout/Header/Header'
-import styles from './page.module.css'
+import Header from '@/design-system/components/Layout/Header/Header';
+import { useEffect, useState } from 'react';
 import { getPeople } from './functions/requests';
 import { People as PeopleInterface } from './interfaces/people.interface';
-import People from './pages/People/People';
-import PeopleInfo from './pages/PeopleInfo/PeopleInfo';
+import styles from './page.module.css';
+import People from './components/People/People';
 
 
 export default function Home() {
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [personId, setPersonId] = useState<number>(1);
-  const [people, setPeople] = useState<PeopleInterface | null>(null);
+  const [people, setPeople] = useState<PeopleInterface[]>([]);
 
-  // When reloading the page shows loader and the setPeople status is populated
   useEffect(() => {
     setLoading(true);
-    getPeople(setPeople, 1);
+    getPeople(setPeople);
     setTimeout(() => {
       setLoading(false);
     }, 5000);
@@ -25,15 +22,12 @@ export default function Home() {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.main}>
         <Header>Ravn Star Wars Registry</Header>
-        <div className={styles.people}>
-          <People people={people} loading={loading}></People>
-          <PeopleInfo detailPeople={people}></PeopleInfo>
+        <div className={styles.people_container}>
+          <People people={people} loading={loading}/>
         </div>
       </div>
-
     </>
-
   )
 }

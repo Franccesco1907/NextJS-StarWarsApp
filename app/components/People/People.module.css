@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.people_info {
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .container, .container > div {
+    width: 100%;
+  }
+
+  .people_info {
+    display: none;
+  }
+}

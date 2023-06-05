@@ -2,3 +2,17 @@
   width:70px;
   height: auto;
 }
+
+.loadingContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.loadingText {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}

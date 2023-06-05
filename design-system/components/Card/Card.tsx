@@ -12,7 +12,7 @@ const Card: React.FC<CardProps> = ({ onClick, title, description }) => {
   return (
     <div className={styles.card} onClick={onClick}>
       <div className={styles.card_container}>
-        <Typography variant='heading'>{title}</Typography>
+        <Typography variant='subheading'>{title}</Typography>
         <Typography variant='body'>{description}</Typography>
       </div>
       <div className={styles.svg}>

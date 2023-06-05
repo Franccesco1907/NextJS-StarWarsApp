@@ -1,12 +1,8 @@
-.container {
+.main {
   display: flex;
   flex-direction: column;
 }
 
-.people {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-  margin: 0;
+.people_container {
+  width: auto;
 }

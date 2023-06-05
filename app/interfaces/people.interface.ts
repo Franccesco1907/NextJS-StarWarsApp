@@ -10,9 +10,18 @@ export interface People {
   homeworld:  string;
   films:      string[];
   species:    string[];
+  mainSpecie?:    string;
+  home?:    string;
   vehicles:   string[];
   starships:  string[];
   created:    Date;
   edited:     Date;
   url:        string;
+}
+
+export interface Result {
+  count:    number;
+  next:     string;
+  previous: null;
+  results:  People[];
 }
