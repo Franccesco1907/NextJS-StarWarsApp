@@ -11,6 +11,8 @@ export default function Home() {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [people, setPeople] = useState<PeopleInterface[]>([]);
+  // !TODO: It must be a context. Do it later!
+  const [peopleId, setPeopleId] = useState<number>(0);
 
   useEffect(() => {
     setLoading(true);
@@ -23,9 +25,9 @@ export default function Home() {
   return (
     <>
       <div className={styles.main}>
-        <Header>Ravn Star Wars Registry</Header>
+        <Header peopleId={peopleId} setPeople={setPeopleId}>Ravn Star Wars Registry</Header>
         <div className={styles.people_container}>
-          <People people={people} loading={loading}/>
+          <People people={people} peopleId={peopleId} setPeopleId={setPeopleId} loading={loading}/>
         </div>
       </div>
     </>

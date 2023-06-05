@@ -11,7 +11,7 @@ function PeopleInfo(props: { detailPeople: People, peopleId: number }) {
           <GeneralInformation detailPeople={props.detailPeople} />
           <VehicleInformation detailPeople={props.detailPeople} />
         </div>
-      ) : (<h5 className="text-alert">No character selected</h5>)}
+      ) : (<h5>No character selected</h5>)}
     </div>
   )
 }

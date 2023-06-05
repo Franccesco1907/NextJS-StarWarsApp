@@ -5,7 +5,6 @@ import Typography from '../Typography/Typography';
 const Loading: React.FC = () => {
   return (
     <div className={styles.loadingContainer}>
-      <div className={styles.spinner}></div>
       <img src='/Spinner.svg' alt="spinner" title="spinner" className={styles.spinner} />
       <Typography variant='caption'>Loading</Typography>
     </div>
