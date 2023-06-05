@@ -1,0 +1,22 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px 24px 16px 14.89px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  height: 69px;
+  cursor: pointer;
+}
+
+.card_container {
+  width: 314px;
+}
+
+.svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+}
