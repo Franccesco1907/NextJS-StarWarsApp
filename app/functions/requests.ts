@@ -3,18 +3,18 @@ import { People, Result } from '../interfaces/people.interface';
 
 export const getPeople = async (setPeople: React.Dispatch<React.SetStateAction<People[]>>) => {
   const people: People[] = [];
-  let request: { data: Result } = await axios.get(`https://swapi.dev/api/people?page=1`);
-  while (request.data.next) {
+  let next: string | null = 'https://swapi.dev/api/people?page=1';
+  while (next) {
+    const request: { data: Result } = await axios.get(next);
     for (let person of request.data.results) {
       person.mainSpecie = await getMainSpecie(person.species[0]);
       person.home = await getHome(person.homeworld);
       person.vehicles = await getVehicles(person.vehicles);
       people.push(person);
     };
-    setPeople(people);
-    request = await axios.get(request.data.next);
+    setPeople([...people]);
+    next = request.data.next;
   };
-  setPeople([...people, ...request.data.results]);
 }
 
 const getMainSpecie = async (url: string) => {
