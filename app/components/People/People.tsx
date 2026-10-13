@@ -30,7 +30,7 @@ export default function People(props: { people: PeopleInterface[], loading: bool
       {
         (loading && props.peopleId !== 0) && (
           <div className={styles.people_info}>
-            <PeopleInfo detailPeople={props.people[props.peopleId]} peopleId={props.peopleId} />
+            <PeopleInfo detailPeople={props.people[props.peopleId - 1]} peopleId={props.peopleId} />
           </div>
         )
       }
